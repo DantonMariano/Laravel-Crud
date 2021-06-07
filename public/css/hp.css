@@ -1,0 +1,144 @@
+/*    FONTS       */
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200&display=swap');
+
+/*    MAIN JS     */
+body,html{
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  background-color: rgba(0,0,0,0.9);
+  box-shadow: 0 0 30px inset rgba(0,0,0,0.3);
+}
+
+.main-content{
+  width: 40%;
+  height: calc(100%/2);
+  background-color: white;
+  position: relative;
+  border-radius: 0;
+  top:50%;
+  clip-path: circle(0% at 50% 50%);
+  transition: 1s clip-path 200ms, 400ms border-radius 1500ms, 500ms box-shadow 1700ms, 1000ms width 4000ms ;
+  transform: translate(0,-50%);
+  box-shadow: 0;
+  transition-timing-function: ease-in-out;
+}
+
+.main-show{
+  clip-path: circle(100% at 50% 50%);
+  border-radius: 20px;
+  box-shadow: 0 0 13px inset rgba(0,0,0,0.4), 0 0 5px rgba(255,255,255,0.7);
+}
+
+.main-wide{
+  width: 100%;
+}
+
+.main-form{
+  opacity:0;
+  height: 100%;
+  transition: 1s opacity 2s;
+  position:relative;
+  top: 60%;
+  transform: translateY(-50%);
+  width: 100%;
+
+}
+
+.main-form input {
+  border-radius: 20px;
+  width: 80%;
+  height: 30px;
+  padding: 10px;
+  margin: 5px 0 5px 0;
+  border: none;
+  font-family: 'Oswald', sans-serif;
+  box-shadow: 0 0 3px rgba(0,0,0,0.5);
+  transition: box-shadow 200ms;
+}
+
+.main-form input:hover{
+  box-shadow: 0 0 12px rgba(0,0,0,0.3);
+}
+
+input:focus{
+  outline: none;
+}
+
+.main-form > h1 {
+  position: relative;
+}
+
+.main-form > h1::after{
+  content: '';
+  background-color: black;
+  animation: form-after-animate 1s forwards;
+  position: relative;
+  animation-delay: 7s;
+  left: 5px;
+  transition: width 1s;
+  display: inline-block;
+  height: 2px;
+}
+
+.after-wide{
+  width: 45%;
+}
+
+.main-title{
+  position:relative;
+  opacity: 0;
+  transition: 1s opacity 2s;
+  top:50%;
+  font-family: 'Oswald', sans-serif;
+  transform: translateY(-50%);
+  user-select: none;
+}
+
+.opacity-show{
+  opacity: 1;
+}
+/*                */
+
+/* BOOTSTRAP ALTS */
+.container{
+  height: 100%;
+}
+.row{
+  height: 100%;
+}
+.col-4{
+  height: 100%;
+}
+/*                */
+
+/* VANTA CONFIG   */
+#vanta-wrapper{
+  width: 100%;
+  height: 100%;
+  box-shadow: 0 0 30px inset rgba(0,0,0,0.3);
+}
+/*                */
+
+/* MEDIA QUERIES  */
+@media screen and (max-width:768){
+  #lft{
+    display: none;
+  }
+  #rgt{
+    display:none;
+  }
+}
+/*                */
+/*   ANIMATIONS   */
+
+@keyframes form-after-animate {
+  100% {
+    width: 50%;
+  }
+  0%{
+    width: 0;
+  }
+}
+/*                */
