@@ -29,4 +29,13 @@ class ReceitaModel extends Model
     ->where('id', '=' ,$id)
     ->delete();
   }
+  public static function update_receita($receita){
+    $nome  = $receita['nome'];
+    $texto = $receita['texto'];
+    $id    = $receita['id'];
+
+    DB::table('receitas')
+    ->where('id', '=', $id)
+    ->update(['nome' => $nome, 'receita' => $texto]);
+  }
 }

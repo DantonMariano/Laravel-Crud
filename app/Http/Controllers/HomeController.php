@@ -26,4 +26,16 @@ class HomeController extends Controller
     ReceitaModel::deleta_receita($id);
     return back();
   }
+  public function altera_receita(Request $request){
+    $nome  = $request->input('nome');
+    $texto = $request->input('texto');
+    $id    = $request->input('id');
+    $update = [
+      'nome'  => $nome,
+      'texto' => $texto,
+      'id'    => $id
+    ];
+    ReceitaModel::update_receita($update);
+    return back();
+  }
 }
