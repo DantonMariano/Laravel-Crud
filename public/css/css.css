@@ -1,0 +1,6 @@
+#errmsg {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    color: rgba(255, 100, 100, 0.9);
+}

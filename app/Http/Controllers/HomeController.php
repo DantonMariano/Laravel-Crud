@@ -5,12 +5,21 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\Models\ReceitaModel;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
 
 class HomeController extends Controller
 {
   public function envia_receita(Request $request){
     $nome = $request->input('nome');
     $texto = $request->input('texto');
+
+    $mask = [$nome, $texto];
+    foreach($mask as $input){
+      if (empty($input) || ctype_space($input) || ctype_punct($input)){
+        return Redirect::back()->withErrors(['msg' => 'Formulário Inválido.']);
+      }
+    }
+
     $insert = [
       'nome' => $nome,
       'texto' => $texto
@@ -30,6 +39,14 @@ class HomeController extends Controller
     $nome  = $request->input('nome');
     $texto = $request->input('texto');
     $id    = $request->input('id');
+
+    $mask = [$nome, $texto];
+    foreach($mask as $input){
+      if (empty($input) || ctype_space($input) || ctype_punct($input)){
+        return Redirect::back()->withErrors(['msg' => 'Alteração Inválida.']);
+      }
+    }
+
     $update = [
       'nome'  => $nome,
       'texto' => $texto,

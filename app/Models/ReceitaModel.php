@@ -36,6 +36,6 @@ class ReceitaModel extends Model
 
     DB::table('receitas')
     ->where('id', '=', $id)
-    ->update(['nome' => $nome, 'receita' => $texto]);
+    ->update(['nome' => $nome, 'receita' => $texto, 'alt' => 1]);
   }
 }
